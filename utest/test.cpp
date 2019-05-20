@@ -67,7 +67,7 @@ TEST(UdpSocket, CreateIpv4SocketWithPort_Addr_RcvTimeout) {
 	const auto addr = stringToIpAddress<IPv4Address>(SRV_ADDR4).value();
 	auto socket = Socket_v4::create(PORT_7777, addr).value();
 	ASSERT_TRUE(socket);
-    ASSERT_TRUE(socket->setReceiveTimeout(RCV_TIMEOUT));
+	ASSERT_TRUE(socket->setReceiveTimeout(RCV_TIMEOUT));
 	Timer timer;
 	auto result = socket->receive();
 	ASSERT_LE(TIMEOUT_2S, timer.stop());
@@ -77,7 +77,7 @@ TEST(UdpSocket, CreateIpv6SocketWithPort_Addr_RcvTimeout) {
 	const auto addr = stringToIpAddress<IPv6Address>(SRV_ADDR6).value();
 	auto socket = Socket_v6::create(PORT_7777, addr).value();
 	ASSERT_TRUE(socket);
-    ASSERT_TRUE(socket->setReceiveTimeout(RCV_TIMEOUT));
+	ASSERT_TRUE(socket->setReceiveTimeout(RCV_TIMEOUT));
 	Timer timer;
 	auto result = socket->receive();
 	ASSERT_LE(TIMEOUT_2S, timer.stop());
